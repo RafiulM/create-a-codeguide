@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Create comprehensive README structure and project overview",
+    "description": "Create the main README.md file with proper markdown structure including project title, description, key features, and technology stack sections",
+    "details": "Analyze the existing codebase to extract project information and create a well-structured README.md file. Include: 1) Project title and tagline based on the PRD, 2) Clear description of what codeguide does (marketing landing page + protected dashboard), 3) Key features list (Hero, Features, Testimonials, Pricing, FAQ sections, authentication, dark mode), 4) Complete technology stack section listing Next.js 15, TypeScript, React, Tailwind CSS, shadcn/ui, better-auth, Drizzle ORM, PostgreSQL, and Docker. Use proper markdown formatting with headers, bullet points, and badges where appropriate.",
+    "status": "pending",
+    "test_strategy": "Review the README structure for completeness and accuracy by cross-referencing with the PRD requirements and package.json dependencies. Ensure all major features and technologies are documented.",
+    "priority": "high",
+    "ordinal": 0,
+    "task_group_id": "0b9dcf01-73c8-4f41-8432-8c44965d56e5",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "c0ce74d0-a8af-455e-b6b6-ba86810a9a69",
+    "created_at": "2025-10-26T23:02:48.748190Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  },
+  {
+    "title": "Document detailed setup and installation instructions",
+    "description": "Create comprehensive Getting Started section with prerequisites, installation steps, environment configuration, and local development instructions",
+    "details": "Write step-by-step setup instructions including: 1) Prerequisites (Node.js 18+, PostgreSQL, Docker), 2) Installation commands (git clone, npm install), 3) Environment configuration section explaining required variables (DATABASE_URL, BETTER_AUTH_SECRET, BETTER_AUTH_URL), 4) Database setup instructions using Drizzle migrations, 5) Local development commands (npm run dev, Docker Compose setup), 6) Port information and access URLs. Include copy-pasteable code blocks and troubleshooting tips for common setup issues.",
+    "status": "pending",
+    "test_strategy": "Validate all commands and steps by following the instructions on a clean environment. Verify that all environment variables are correctly documented and that the setup process works end-to-end.",
+    "priority": "high",
+    "ordinal": 1,
+    "task_group_id": "0b9dcf01-73c8-4f41-8432-8c44965d56e5",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "ff29f2af-c7fe-402d-8064-d7d7a4777ac0",
+    "created_at": "2025-10-26T23:02:48.748198Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  },
+  {
+    "title": "Add project structure overview and contribution guidelines",
+    "description": "Document the project's file structure, key directories, and provide contribution guidelines with license information",
+    "details": "Create sections for: 1) Project Structure - document key directories (app/, components/, lib/) and important files (layout.tsx, page.tsx, API routes), 2) Architecture overview explaining Next.js App Router structure, Server/Client components, and authentication flow, 3) Contribution guidelines including code formatting (Prettier), commit conventions, and development workflow, 4) License section with appropriate license information, 5) Optional deployment section with general guidance for production deployment. Ensure the documentation is clear for new contributors.",
+    "status": "pending",
+    "test_strategy": "Review the project structure documentation against the actual codebase to ensure accuracy. Verify that contribution guidelines are practical and follow industry standards.",
+    "priority": "medium",
+    "ordinal": 2,
+    "task_group_id": "0b9dcf01-73c8-4f41-8432-8c44965d56e5",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "476b2a7a-fd02-4bd0-8c1e-50649d5f1b04",
+    "created_at": "2025-10-26T23:02:48.748200Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  }
+]
