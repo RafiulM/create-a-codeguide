@@ -1,117 +1,116 @@
-# Project Requirements Document: codeguide-starter
-
----
+# Project Requirements Document (PRD)
 
 ## 1. Project Overview
 
-The **codeguide-starter** project is a boilerplate web application that provides a ready-made foundation for any web project requiring secure user authentication and a post-login dashboard. It sets up the common building blocks—sign-up and sign-in pages, API routes to handle registration and login, and a simple dashboard interface driven by static data. By delivering this skeleton, it accelerates development time and ensures best practices are in place from day one.
+**`codeguide`** is a full-stack web application built on top of the **`codeguide-starter`** template. It combines a polished marketing landing page with a protected user dashboard. The starter provides pre-wired components for a Hero section, Features, Testimonials, Pricing, and FAQ—along with user authentication, database integration, theming, and deployment tooling. By reusing this foundation, the team can focus on content and unique functionality instead of wiring up boilerplate.
 
-This starter kit is being built to solve the friction developers face when setting up repeated common tasks: credential handling, session management, page routing, and theming. Key objectives include: 1) delivering a fully working authentication flow (registration & login), 2) providing a gated dashboard area upon successful login, 3) establishing a clear, maintainable project structure using Next.js and TypeScript, and 4) demonstrating a clean theming approach with global and section-specific CSS. Success is measured by having an end-to-end login journey in under 200 lines of code and zero runtime type errors.
+We are building **`codeguide`** to attract and convert new users via a clear, compelling landing page and then deliver value inside a secure dashboard. Key success criteria include: 1) fast, SEO-friendly landing pages with all five marketing sections completed; 2) a frictionless sign-up/sign-in flow; 3) a basic but functional dashboard that only authenticated users can access; and 4) consistent styling and dark-mode support.
 
 ---
 
 ## 2. In-Scope vs. Out-of-Scope
 
 ### In-Scope (Version 1)
-- User registration (sign-up) form with validation
-- User login (sign-in) form with validation
-- Next.js API routes under `/api/auth/route.ts` handling:
-  - Credential validation
-  - Password hashing (e.g., bcrypt)
-  - Session creation or JWT issuance
-- Protected dashboard pages under `/dashboard`:
-  - `layout.tsx` wrapping dashboard content
-  - `page.tsx` rendering static data from `data.json`
-- Global application layout in `/app/layout.tsx`
-- Basic styling via `globals.css` and `dashboard/theme.css`
-- TypeScript strict mode enabled
+- Implement landing page with these five sections:
+  - **Hero** (headline, subheadline, primary CTA button)
+  - **Features** (3–5 key product features)
+  - **Testimonials** (at least 2 user quotes)
+  - **Pricing** (tiered plan cards)
+  - **FAQ** (expand/collapse items)
+- Sign-up and sign-in flows using the `better-auth` library.
+- Protected dashboard stub under `/dashboard` that greets the user by name.
+- PostgreSQL database connectivity via Drizzle ORM to persist users.
+- Dark mode toggle using `next-themes`.
+- Containerization with Docker and Docker Compose for local dev.
+- Basic SEO metadata (title, description, Open Graph tags).
 
-### Out-of-Scope (Later Phases)
-- Integration with a real database (PostgreSQL, MongoDB, etc.)
-- Advanced authentication flows (password reset, email verification, MFA)
-- Role-based access control (RBAC)
-- Multi-tenant or white-label theming
-- Unit, integration, or end-to-end testing suites
-- CI/CD pipeline and production deployment scripts
+### Out-of-Scope (Future Phases)
+- Headless CMS integration (Sanity, Contentful, etc.).
+- Analytics (Google Analytics, Plausible, etc.).
+- Contact form or newsletter signup endpoints.
+- E2E testing frameworks (Cypress/Playwright).
+- In-depth dashboard features beyond the welcome page.
+- Multi-language support/localization.
+- Advanced CI/CD pipelines beyond Docker Compose.
 
 ---
 
 ## 3. User Flow
 
-A new visitor lands on the root URL and sees a welcome page with options to **Sign Up** or **Sign In**. If they choose Sign Up, they fill in their email, password, and hit “Create Account.” The form submits to `/api/auth/route.ts`, which hashes the password, creates a new user session or token, and redirects them to the dashboard. If any input is invalid, an inline error message explains the issue (e.g., “Password too short”).
+When a new visitor lands on **`/`**, they see a clean, responsive landing page composed of five distinct sections: Hero (with a Call-to-Action), Features, Testimonials, Pricing, and FAQ. The primary CTA buttons in the header and Hero section invite the user to create an account or log in. All images and icons load quickly thanks to Next.js’s optimized `<Image>` component. A theme switcher in the header toggles between light and dark modes.
 
-Once authenticated, the user is taken to the `/dashboard` route. Here they see a sidebar or header defined by `dashboard/layout.tsx`, and the main panel pulls in static data from `data.json`. They can log out (if that control is present), but otherwise their entire session is managed by server-side cookies or tokens. Returning users go directly to Sign In, submit credentials, and upon success they land back on `/dashboard`. Any unauthorized access to `/dashboard` redirects back to Sign In.
+A user clicks **“Sign Up”**, is directed to the sign-up form at **`/sign-up`**, and provides an email and password. Upon successful submission, the form calls the Next.js API route powered by `better-auth`. If registration succeeds, the visitor is immediately redirected to **`/dashboard`**, where they see a personalized greeting and a placeholder for future product features. If any error occurs (e.g., email in use), the user sees a clear, inline error message.
 
 ---
 
 ## 4. Core Features
 
-- **Sign-Up Page (`/app/sign-up/page.tsx`)**: Form fields for email & password, client-side validation, POST to `/api/auth`.
-- **Sign-In Page (`/app/sign-in/page.tsx`)**: Form fields for email & password, client-side validation, POST to `/api/auth`.
-- **Authentication API (`/app/api/auth/route.ts`)**: Handles both registration and login based on HTTP method, integrates password hashing (bcrypt) and session or JWT logic.
-- **Global Layout (`/app/layout.tsx` + `globals.css`)**: Shared header, footer, and CSS resets across all pages.
-- **Dashboard Layout (`/app/dashboard/layout.tsx` + `dashboard/theme.css`)**: Sidebar or top nav for authenticated flows, section-specific styling.
-- **Dashboard Page (`/app/dashboard/page.tsx`)**: Reads `data.json`, renders it as cards or tables.
-- **Static Data Source (`/app/dashboard/data.json`)**: Example dataset to demo dynamic rendering.
-- **TypeScript Configuration**: `tsconfig.json` with strict mode and path aliases (if any).
+- **Marketing Landing Page**: Five modular React components (Hero, Features, Testimonials, Pricing, FAQ). Each section supports custom titles, images, and content passed as props.
+- **Authentication**: Sign-up and sign-in forms using `better-auth` under `/api/auth`; secure storage of hashed passwords in PostgreSQL.
+- **Protected Dashboard**: Simple dashboard page (`/dashboard`) that only renders when a valid session exists.
+- **Theming**: Light/dark mode toggle with `next-themes`; persists preference in local storage.
+- **Database Integration**: Type-safe user model and queries with Drizzle ORM and PostgreSQL.
+- **Docker Setup**: `Dockerfile` and `docker-compose.yml` for 1-command local environment spin-up.
+- **SEO Metadata**: Next.js Metadata API in `app/layout.tsx` and `app/page.tsx` to set page titles, descriptions, and Open Graph tags.
 
 ---
 
 ## 5. Tech Stack & Tools
 
-- **Framework**: Next.js (App Router) for file-based routing, SSR/SSG, and API routes.
-- **Language**: TypeScript for type safety.
-- **UI Library**: React 18 for component-based UI.
-- **Styling**: Plain CSS via `globals.css` (global reset) and `theme.css` (sectional styling). Can easily migrate to CSS Modules or Tailwind in the future.
-- **Backend**: Node.js runtime provided by Next.js API routes.
-- **Password Hashing**: bcrypt (npm package).
-- **Session/JWT**: NextAuth.js or custom JWT logic (to be decided in implementation).
-- **IDE & Dev Tools**: VS Code with ESLint, Prettier extensions. Optionally, Cursor.ai for AI-assisted coding.
+- Frontend:
+  - **Next.js 15** (App Router, Server Components) with **TypeScript**
+  - **React** 18+
+  - **Tailwind CSS** + **shadcn/ui** component library
+  - **next-themes** for dark mode
+- Backend:
+  - **Next.js API Routes** within the App Router
+  - **better-auth** library for authentication
+  - **PostgreSQL** database
+  - **Drizzle ORM** for type-safe queries
+- Deployment & Tooling:
+  - **Docker** & **Docker Compose**
+  - **dotenv** for environment variables
+  - **Prettier** for code formatting
+- IDE Plugins (optional):
+  - **ESLint** & **Prettier** integrations
+  - **Tailwind CSS IntelliSense**
+  - **VSCode** or **WebStorm** recommended
 
 ---
 
 ## 6. Non-Functional Requirements
 
-- **Performance**: Initial page load under 200 ms on a standard broadband connection. API responses under 300 ms.
-- **Security**:
-  - HTTPS only in production.
-  - Proper CORS, CSRF protection for API routes.
-  - Secure password storage (bcrypt with salt).
-  - No credentials or secrets checked into version control.
-- **Scalability**: Structure must support adding database integration, caching layers, and advanced auth flows without rewiring core app.
-- **Usability**: Forms should give real-time feedback on invalid input. Layout must be responsive (mobile > 320 px).
-- **Maintainability**: Code must adhere to TypeScript strict mode. Linting & formatting enforced by ESLint/Prettier.
+- **Performance**: Landing page Time to Interactive ≤ 1s on 3G emulation; dashboard visible in ≤ 500 ms after auth.
+- **SEO**: All marketing pages use server-rendered metadata and semantic HTML for optimal indexing.
+- **Security**: OWASP Top 10 mitigation; secure cookie/session management; HTTPS endpoints.
+- **Availability**: Aim for 99.9% uptime in production.
+- **Usability**: Responsive design for mobile, tablet, desktop; accessible color contrast; keyboard-navigable forms.
 
 ---
 
 ## 7. Constraints & Assumptions
 
-- **No Database**: Dashboard uses only `data.json`; real database integration is deferred.
-- **Node Version**: Requires Node.js >= 14.
-- **Next.js Version**: Built on Next.js 13+ App Router.
-- **Authentication**: Assumes availability of bcrypt or NextAuth.js at implementation time.
-- **Hosting**: Targets serverless or Node.js-capable hosting (e.g., Vercel, Netlify).
-- **Browser Support**: Modern evergreen browsers; no IE11 support required.
+- **Next.js 15** and **Node.js 18+** are available in the target environment.
+- The `better-auth` library supports our Next.js version without major patches.
+- PostgreSQL instance reachable via standard port (5432).
+- No headless CMS is in place—content will be hardcoded or pulled from JSON/local files.
+- Users must have modern browsers with JavaScript enabled.
 
 ---
 
 ## 8. Known Issues & Potential Pitfalls
 
-- **Static Data Limitation**: `data.json` is only for demo. A real API or database will be needed to avoid stale data.
-  *Mitigation*: Define a clear interface for data fetching so swapping to a live endpoint is trivial.
+- **`better-auth` compatibility**: If the library lags behind the Next.js App Router changes, you may need to patch or fork it. Mitigation: lock to a known working version in `package.json`.
+- **Drizzle ORM migrations**: Ensure proper migration scripts are in place to avoid data loss. Use version control for migration files.
+- **Docker networking**: Misconfigured ports in `docker-compose.yml` can block database connectivity. Always test with a fresh compose up.
+- **SSR vs. CSR**: Mixing Server and Client Components incorrectly can cause hydration errors. Clearly annotate components with `'use client'` at the top when needed.
+- **Image optimization**: Failing to use Next.js `<Image>` may bloat page size. Always wrap marketing graphics in `<Image>`.
 
-- **Global CSS Conflicts**: Using global styles can lead to unintended overrides.
-  *Mitigation*: Plan to migrate to CSS Modules or utility-first CSS in Phase 2.
-
-- **API Route Ambiguity**: Single `/api/auth/route.ts` handling both sign-up and sign-in could get complex.
-  *Mitigation*: Clearly branch on HTTP method (`POST /register` vs. `POST /login`) or split into separate files.
-
-- **Lack of Testing**: No test suite means regressions can slip in.
-  *Mitigation*: Build a minimal Jest + React Testing Library setup in an early iteration.
-
-- **Error Handling Gaps**: Client and server must handle edge cases (network failures, malformed input).
-  *Mitigation*: Define a standard error response schema and show user-friendly messages.
+Suggested quick wins:
+- Pin all dependencies and run `npm ci` in CI.
+- Add a basic smoke test for landing page HTML and dashboard redirect.
+- Document environment variable requirements in a `.env.example` file.
 
 ---
 
-This PRD should serve as the single source of truth for the AI model or any developer generating the next set of technical documents: Tech Stack Doc, Frontend Guidelines, Backend Structure, App Flow, File Structure, and IDE Rules. It contains all functional and non-functional requirements with no ambiguity, enabling seamless downstream development.
+This PRD should enable an AI model or a developer to build a complete, production-ready version 1 of the **`codeguide`** application without further clarifications. All main flows, features, and non-functional criteria have been spelled out in clear, everyday English.

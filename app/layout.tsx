@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Parkinsans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { LayoutWrapper } from "@/components/layout/LayoutWrapper";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${parkinsans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${parkinsans.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
@@ -40,7 +41,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
         </ThemeProvider>
       </body>
     </html>
