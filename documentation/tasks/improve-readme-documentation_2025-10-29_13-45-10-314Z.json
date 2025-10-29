@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Create comprehensive README.md structure and content",
+    "description": "Create a well-structured README.md file with all essential sections including project overview, key features, technology stack, and getting started guide",
+    "details": "Write a comprehensive README.md file in the project root that includes: 1) Project overview explaining the codeguide application purpose and its relationship to codeguide-starter template, 2) Key features section highlighting the five marketing sections (Hero, Features, Testimonials, Pricing, FAQ), authentication with better-auth, protected dashboard, dark mode support, and Docker setup, 3) Technology stack section listing Next.js 15, TypeScript, React, Tailwind CSS, shadcn/ui, better-auth, PostgreSQL, and Drizzle ORM, 4) Architecture overview explaining App Router, component-based design, and serverless API routes. Use clear Markdown formatting with proper headings, bullet points, and emphasis for readability.",
+    "status": "pending",
+    "test_strategy": "Review the README content for accuracy by cross-referencing with the PRD requirements and project structure. Ensure all mentioned features and technologies are correctly described and aligned with the actual implementation.",
+    "priority": "high",
+    "ordinal": 0,
+    "task_group_id": "192a2213-b603-4540-b6d1-9f95fb37a703",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "688ffb23-8fa8-4806-8ae6-6e37d59d1687",
+    "created_at": "2025-10-29T13:45:06.536419Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  },
+  {
+    "title": "Add detailed setup and development instructions",
+    "description": "Create comprehensive getting started section with prerequisites, installation steps, environment configuration, and development server setup",
+    "details": "Add a detailed 'Getting Started' section with: 1) Prerequisites subsection listing Node.js 18+, PostgreSQL database, and package manager requirements, 2) Installation subsection with step-by-step commands for cloning the repository and running 'npm install', 3) Environment Configuration subsection explaining how to create .env.local from .env.example, listing required environment variables for database connection (DATABASE_URL) and better-auth configuration (AUTH_SECRET, etc.), 4) Running the Development Server subsection with 'npm run dev' command and localhost URL. Use code blocks for all shell commands and provide clear explanations for each step.",
+    "status": "pending",
+    "test_strategy": "Validate the setup instructions by following them step-by-step in a fresh environment to ensure they lead to a successfully running application. Test that all provided commands work correctly and environment variable examples are accurate.",
+    "priority": "high",
+    "ordinal": 1,
+    "task_group_id": "192a2213-b603-4540-b6d1-9f95fb37a703",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "e8029727-f4ef-4959-ad38-ab027b6544a7",
+    "created_at": "2025-10-29T13:45:06.536427Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  },
+  {
+    "title": "Add deployment guide and project metadata",
+    "description": "Complete the README with deployment instructions, project metadata, and supporting documentation references",
+    "details": "Add final sections to complete the README: 1) Deployment section with instructions for deploying to Vercel, including how to configure environment variables in Vercel dashboard and connect to a production PostgreSQL database, 2) Project structure overview briefly explaining the app/ directory structure, components/ui/ folder, and key files like layout.tsx and API routes, 3) Contributing guidelines (if applicable) or links to issue tracker, 4) License information, 5) Add relevant badges at the top for build status, license, or framework versions. Also create a .env.example file in the project root with placeholder values for all required environment variables mentioned in the setup instructions.",
+    "status": "pending",
+    "test_strategy": "Verify that deployment instructions are accurate and complete by testing the Vercel deployment process. Ensure the .env.example file contains all necessary environment variables with appropriate placeholder values. Check that all links and references in the README are functional.",
+    "priority": "medium",
+    "ordinal": 2,
+    "task_group_id": "192a2213-b603-4540-b6d1-9f95fb37a703",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "40e2877b-ce4b-4795-b7b0-66a8b0fa8561",
+    "created_at": "2025-10-29T13:45:06.536429Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  }
+]
