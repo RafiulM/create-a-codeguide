@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Create comprehensive project overview and features section",
+    "description": "Write the main project introduction, overview, and features list for the README.md file",
+    "details": "Create a compelling project overview that explains what codeguide is and its purpose as a full-stack web application built on the codeguide-starter template. Include a clear description of the project's goals (marketing landing page + protected dashboard). Add a comprehensive features section listing key capabilities: Hero/Features/Testimonials/Pricing/FAQ sections, authentication with better-auth, protected dashboard, dark mode support, PostgreSQL integration with Drizzle ORM, Docker setup, and SEO optimization. Use proper Markdown formatting with headers, bullet points, and emphasis where appropriate.",
+    "status": "pending",
+    "test_strategy": "Verify the content accurately reflects the project capabilities described in the PRD. Ensure the language is clear and accessible to both technical and non-technical readers. Check that all major features from the PRD are represented.",
+    "priority": "high",
+    "ordinal": 0,
+    "task_group_id": "e54478d7-7c48-46d5-be22-568ae06f02a4",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "16478108-e3bd-4e4a-8a23-72ea95303659",
+    "created_at": "2025-10-29T13:39:40.584611Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  },
+  {
+    "title": "Document technology stack and project structure",
+    "description": "Add detailed sections covering the tech stack, architecture patterns, and project structure",
+    "details": "Create a technology stack section listing all major technologies: Next.js 15 with App Router, React 18+, TypeScript, Tailwind CSS, shadcn/ui, next-themes, better-auth, PostgreSQL, Drizzle ORM, Docker, and development tools. Add a project structure section explaining the key directories and files: app/ directory with routes (page.tsx, dashboard/, sign-in/, sign-up/), app/api/auth/ for authentication endpoints, components/ui/ for reusable components, and configuration files. Include brief explanations of the App Router architecture and server components approach.",
+    "status": "pending",
+    "test_strategy": "Cross-reference the documented stack with package.json and actual project structure. Ensure all major dependencies and architectural decisions are accurately represented. Verify the structure explanation matches the actual repository layout.",
+    "priority": "medium",
+    "ordinal": 1,
+    "task_group_id": "e54478d7-7c48-46d5-be22-568ae06f02a4",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "2e946601-227e-4875-8251-7860c5ec410f",
+    "created_at": "2025-10-29T13:39:40.584632Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  },
+  {
+    "title": "Create detailed setup and deployment instructions",
+    "description": "Write comprehensive getting started guide with step-by-step setup instructions and deployment guidance",
+    "details": "Create a detailed 'Getting Started' section with numbered steps: 1) Prerequisites (Node.js 18+, PostgreSQL), 2) Clone repository command, 3) Install dependencies with npm/yarn/pnpm, 4) Environment setup (copy .env.example to .env and configure DATABASE_URL, BETTER_AUTH_SECRET, etc.), 5) Database setup and migrations, 6) Start development server command, 7) Access instructions for localhost. Add a deployment section covering environment variable requirements for production, build commands, and general hosting considerations for platforms like Vercel. Include troubleshooting tips for common setup issues like database connection problems.",
+    "status": "pending",
+    "test_strategy": "Test all setup instructions by following them exactly in a clean environment (fresh clone). Verify each command works as expected and results in a functional development environment. Ensure environment variable examples are complete and accurate.",
+    "priority": "high",
+    "ordinal": 2,
+    "task_group_id": "e54478d7-7c48-46d5-be22-568ae06f02a4",
+    "parent_task_id": null,
+    "ai_result": null,
+    "id": "79cfd352-191e-4935-995c-57e1fcbc4c86",
+    "created_at": "2025-10-29T13:39:40.584633Z",
+    "user_id": "user_2qaB6nlVH3R9QXhQZpt1nmVDymN",
+    "subtasks": []
+  }
+]
